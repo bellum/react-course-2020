@@ -9,6 +9,8 @@ class App extends Component {
     this.state = {
       message: "Learn React"
     };
+    // Эта привязка обязательна для работы `this` в колбэке.
+    this.toggleMessage = this.toggleMessage.bind(this);
   }
   render() {
     return (
@@ -26,9 +28,21 @@ class App extends Component {
             >
               {this.state.message}
             </a>
+            <button onClick={this.toggleMessage}>Toggle Message</button>
           </header>
         </div>
     );
+  }
+  toggleMessage() {
+    let newMessage;
+    if (this.state.message === "Learn React") {
+      newMessage = "Relax for a moment";
+    } else {
+      newMessage = "Learn React";
+    }
+    // forbidden to modify state directly
+    // this.state.message = newMessage;
+    this.setState({message: newMessage});
   }
 }
 
