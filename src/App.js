@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import UsersList from "./UsersList";
 
 class App extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class App extends Component {
             </a>
             <button onClick={this.toggleMessage}>Toggle Message</button>
           </header>
+          <UsersList/>
         </div>
     );
   }
