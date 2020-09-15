@@ -25,6 +25,7 @@ class App extends Component {
   render() {
     return (
         <div className="App">
+          <h1 className="AppTitle">Monsters Rolodex</h1>
           <Search onSearch={this.onSearch} />
           <CardList users={this.state.filteredUsers}/>
         </div>

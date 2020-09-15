@@ -1,3 +1,14 @@
+@font-face {
+  font-family: "CustomFont";
+  src: url("/BigelowRules-Regular.ttf");
+}
+
 .App {
   text-align: center;
+}
+
+.AppTitle {
+  font-family: "CustomFont", serif;
+  font-size: 72px;
+  color: #0ccac4;
 }
