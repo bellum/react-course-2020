@@ -42,9 +42,7 @@ class App extends Component {
             </a>
             <button onClick={this.toggleMessage}>Toggle Message</button>
           </header>
-          <CardList>
-            {this.state.users.map(user => <div key={user.id}>{user.name}</div>)}
-          </CardList>
+          <CardList users={this.state.users}/>
         </div>
     );
   }
