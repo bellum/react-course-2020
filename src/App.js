@@ -14,7 +14,6 @@ class App extends Component {
       users: [],
       filteredUsers: [],
     };
-    this.onSearch = this.onSearch.bind(this);
   }
 
   componentDidMount() {
@@ -32,12 +31,12 @@ class App extends Component {
     );
   }
 
-  onSearch(event) {
+  onSearch = (event) => {
     let searchTerm = event.target.value.trim();
     this.setState({
       filteredUsers: this.state.users.filter(user => user.name.includes(searchTerm)),
     });
-  }
+  };
 }
 
 export default App;
