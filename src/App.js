@@ -1,18 +1,29 @@
 import React, {Component} from 'react';
+import axios from "axios";
+
 import logo from './logo.svg';
 import './App.css';
-import UsersList from "./components/users-list/users-list.component";
+
+import {CardList} from "./components/card-list/card-list.component";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      message: "Learn React"
+      message: "Learn React",
+      users: [],
     };
     // Эта привязка обязательна для работы `this` в колбэке.
     this.toggleMessage = this.toggleMessage.bind(this);
   }
+
+  componentDidMount() {
+    axios.get("https://jsonplaceholder.typicode.com/users")
+      .then(response => response.data)
+      .then(users => this.setState({users}));
+  }
+
   render() {
     return (
         <div className="App">
@@ -31,7 +42,9 @@ class App extends Component {
             </a>
             <button onClick={this.toggleMessage}>Toggle Message</button>
           </header>
-          <UsersList/>
+          <CardList>
+            {this.state.users.map(user => <div key={user.id}>{user.name}</div>)}
+          </CardList>
         </div>
     );
   }
